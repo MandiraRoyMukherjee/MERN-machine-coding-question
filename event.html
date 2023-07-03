@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event bubling & capturing</title>
+    <style>
+        body *{
+            margin: 10px;
+            padding: 10ox;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<!-- when and which direaction will event propagate will know event propagation -->
+<body>
+    <div>
+        div
+        <form>
+            form
+            <button>button</button>
+        </form>
+    </div>
+    <script>
+        //botton to up its know as event bubling
+        const div=document.querySelector("div")
+        const form=document.querySelector("form")
+        const button=document.querySelector("button")
+
+        // div.addEventListener("click",func)
+        // form.addEventListener("click",func)
+        // button.addEventListener("click",func)
+
+        // function func(event){
+
+        //     alert("current target " + event.currentTarget.tagName)
+        //     alert("current target  tagname" + event.target.tagName)
+        //     alert("current target " + this.tagName)
+
+
+        // }
+        //event capturing
+        // event stop we need e.preventDefault()
+        div.addEventListener("click",function(e){
+            alert("div")
+        },
+       { capture:true}
+        )
+        form.addEventListener("click",function(e){
+            alert("form")
+        },
+        { capture:true}
+        )
+        button.addEventListener("click",function(e){
+            alert("button")
+        },
+        { capture:true}
+        )
+    
+    </script>
+</body>
+</html>

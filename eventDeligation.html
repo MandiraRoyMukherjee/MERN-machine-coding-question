@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event deligation</title>
+    <style>
+        .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+span {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <span class="1"><b>1</b></span>
+        <span class="2">2</span>
+        <span class="3">3</span>
+        <span class="4">4</span>
+        <span class="5">5</span>
+        <span class="6">6</span>
+        <span class="7">7</span>
+        <span class="8">8</span>
+        <span class="9">9</span>
+      
+      </div>
+    
+      <script>
+        document.querySelector(".grid-container").addEventListener("click",(e)=>{
+            console.log(e.target)
+            if(e.target.tagName==="SPAN" || e.target.closest("SPAN")){
+                window.location.href += "/" + event.target.className
+            }
+        })
+      </script>
+</body>
+</html>
